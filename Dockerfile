@@ -1,7 +1,8 @@
 FROM ubuntu:bionic
 
 # Based on the Dockerfile for moul/icecast by Manfred Touron <m@42.am>
-MAINTAINER Stéphane Lepin <stephane.lepin@gmail.com>
+# With the modification by Stéphane Lepin <stephane.lepin@gmail.com>
+MAINTAINER Franco Solerio <franco@solerio.net>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV IC_VERSION "2.4.0-kh12"
