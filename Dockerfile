@@ -24,4 +24,5 @@ ADD ./etc /etc
 
 CMD ["/start.sh"]
 EXPOSE 8000
+EXPOSE 8001
 VOLUME ["/config", "/var/log/icecast"]
