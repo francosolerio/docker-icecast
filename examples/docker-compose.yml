@@ -1,15 +1,20 @@
-icecast:
-  image: stephanel/icecast-kh:latest
-  volumes:
-  - logs:/var/log/icecast
-  - /etc/localtime:/etc/localtime:ro 
-  environment:
-  - ICECAST_SOURCE_PASSWORD=changeme
-  - ICECAST_ADMIN_PASSWORD=changeme
-  - ICECAST_PASSWORD=changeme
-  - ICECAST_RELAY_PASSWORD=changeme
-  - ICECAST_LOCATION=Earth
-  - ICECAST_ADMIN=john@doe.com
-  - ICECAST_HOSTNAME=stream.doe.com
-  ports:
-  - 8000:8000
+version: '3.0'
+services:
+  icecast:
+    image: francosolerio/icecast-kh:1.0
+    volumes:
+      - ./logs:/var/log/icecast
+      - ./config/icecast.xml:/etc/icecast.xml
+      - ./config/ssl/key.pem:/etc/key.pem
+      - ./config/ssl/cert.pem:/etc/cert.pem
+    environment:
+      - ICECAST_SOURCE_PASSWORD=aaaa
+      - ICECAST_ADMIN_PASSWORD=bbbb
+      - ICECAST_PASSWORD=cccc
+      - ICECAST_RELAY_PASSWORD=dddd
+      - ICECAST_LOCATION=Earth
+      - ICECAST_ADMIN=john@doe.com
+      - ICECAST_HOSTNAME=stream@doe.com
+    ports:
+      - 8000:8000
+      - 8001:8001
