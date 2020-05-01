@@ -1,25 +1,25 @@
 # Icecast-KH in Docker with OpenSSL support
 
-###Run with default password, export port 8000
+### Run with default password, export port 8000
 
 ```bash
 docker run -d -p 8000:8000 francosolerio/icecast-kh
 $BROWSER localhost:8000
 ```
 
-###Run with custom password
+### Run with custom password
 
 ```bash
 docker run -d -p 8000:8000 -e ICECAST_SOURCE_PASSWORD=aaaa -e ICECAST_ADMIN_PASSWORD=bbbb -e ICECAST_PASSWORD=cccc -e ICECAST_RELAY_PASSWORD=dddd francosolerio/icecast-kh
 ```
 
-###Run with custom configuration
+### Run with custom configuration
 
 ```bash
 docker run -d -p 8000:8000 -v /local/path/to/icecast.xml:/etc/icecast.xml francosolerio/icecast-kh
 ```
 
-###Run with SSL enabled
+### Run with SSL enabled
 
 ```bash
 docker run -d \
@@ -46,7 +46,7 @@ and the following lines in the ```<paths>``` section:
 ```
 
 
-###Docker-compose
+### Docker-compose
 
 ```yaml
 version: '3.0'
