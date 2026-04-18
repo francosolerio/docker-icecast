@@ -12,14 +12,12 @@ RUN apt-get -qq -y update && \
 		wget curl libxml2-dev libxslt1-dev \
 		libssl-dev libcurl4-openssl-dev \
 		libogg-dev libvorbis-dev libtheora-dev \
-		libspeex-dev python-pip && \
+		libspeex-dev && \
 	wget "https://github.com/karlheyes/icecast-kh/archive/icecast-$IC_VERSION.tar.gz" -O- | tar zxvf - && \
 	cd "icecast-kh-icecast-$IC_VERSION" && \
 	./configure --with-curl --with-openssl --prefix=/usr --sysconfdir=/etc --localstatedir=/var && \
 	make && make install && useradd icecast && \
 	chown -R icecast /etc/icecast.xml
-
-RUN pip install supervisor supervisor-stdout
 
 ADD ./start.sh /start.sh
 ADD ./etc /etc
